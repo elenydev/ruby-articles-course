@@ -1,20 +1,28 @@
-<h1>All articles</h1>
+<div style="display: flex; flex-direction: column; width: 70%">
+    <h1>All articles</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @articles.each  do |article| %>
+    <table>
+        <thead>
             <tr>
-                <td><%= article.title %></td>
-                <td><%= article.description %></td>
-                <td>Placeholder</td>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Actions</th>
             </tr>
-        <% end %>
-    </tbody>
-</table
+        </thead>
+        <tbody>
+            <% @articles.each  do |article| %>
+                <tr>
+                    <td><%= article.title %></td>
+                    <td><%= article.description %></td>
+                    <td>
+                        <ul>
+                            <li>
+                                <%= button_to "Delete", article, method: :delete %>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
